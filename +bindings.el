@@ -96,7 +96,7 @@
  (:prefix "C-c m"
    "s" #'mail-add-attachment
    "m" #'mu4e
-   "s" #'message-send)
+   "s" #'mail-send)
 
  ;; Plugins
 
