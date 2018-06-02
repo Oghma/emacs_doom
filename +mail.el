@@ -67,6 +67,7 @@
              :key ?b))))
 
 (def-package! mu4e-alert
+  :after mu4e
   :config
   ;; set desktop notification method
   (cond (IS-MAC
