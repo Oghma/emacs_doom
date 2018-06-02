@@ -82,7 +82,9 @@
  "M-9" (lambda! (+workspace/switch-to 8))
  "M-0" #'+workspace/switch-to-last
 
-
+ ;; Undo tree
+ "C-z"   #'undo
+ "C-S-z" #'redo
 
  ;; Version control bindings
  (:prefix "C-c g"
@@ -210,6 +212,7 @@
    (:map ein:notebook-multilang-mode-map
      "C-c h" #'+ein/hydra/body))
 
+ ;; Pdf tools
  (:after pdf-tools
    (:map pdf-view-mode-map
      "TAB" #'pdf-outline
