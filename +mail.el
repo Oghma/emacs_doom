@@ -13,7 +13,9 @@
 ;;         mode-line-format nil))
 
 (after! mu4e
-  (setq mail-user-agent 'mu4e-user-agent)
+  (setq mail-user-agent 'mu4e-user-agent
+        mu4e-attachment-dir "~/Downloads")
+
   ;; msmtp config
   (setq sendmail-program "msmtp")
   (setq mail-specify-envelope-from t)
