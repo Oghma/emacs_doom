@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
 (setq +org-dir "~/Dropbox/OrgFiles/Agenda/")
+(setq +todo-file "~/Dropbox/OrgFiles/Agenda/TODO.org")
 
 (after! org-agenda
 
