@@ -7,3 +7,4 @@
 (load! "+bindings")
 (load! "+mail")
 (load! "+org.el")
+(load! "+behaviour.el")
