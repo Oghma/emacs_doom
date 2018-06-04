@@ -3,7 +3,7 @@
 (setq +org-dir "~/Dropbox/OrgFiles/Agenda/")
 (setq +todo-file "~/Dropbox/OrgFiles/Agenda/TODO.org")
 
-(after! org-agenda
+(after! org
 
   ;; Add diary entry for holidays
   (setq org-agenda-include-diary t)
