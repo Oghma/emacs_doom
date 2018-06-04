@@ -216,7 +216,10 @@
  (:after pdf-tools
    (:map pdf-view-mode-map
      "TAB" #'pdf-outline
-     "C-s" #'isearch-forward)))
+     "C-s" #'isearch-forward))
+
+ ;; Calendar stuff
+ "<f8>"  #'=calendar)
 
 
 (which-key-add-key-based-replacements "C-c e"   "perspective")

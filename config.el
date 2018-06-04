@@ -8,3 +8,4 @@
 (load! "+mail")
 (load! "+org.el")
 (load! "+behaviour.el")
+(load! "+calendar.el")

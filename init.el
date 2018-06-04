@@ -122,6 +122,7 @@
        ;; should be loaded late.
        :app
        (email +gmail)    ; emacs as an email client
+       calendar          ; calendar
       ;irc               ; how neckbeards socialize
       ;(rss +org)        ; emacs as an RSS reader
       ;twitter           ; twitter client https://twitter.com/vnought
