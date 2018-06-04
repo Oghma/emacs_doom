@@ -13,7 +13,7 @@
 (after! mu4e-alert
   (def-modeline-segment! mu4e-unread-mail
     (when mu4e-alert-mode-line (let ((unread (substring (nth 1 (split-string mu4e-alert-mode-line)) 1 -1)))
-      (format " %s %s " (all-the-icons-faicon "envelope" :v-adjust -0.1) unread))))
+      (format " %s %s " (all-the-icons-octicon "mail" :v-adjust -0.1) unread))))
 
   (def-modeline! main
     (bar matches " " buffer-info "  %l:%c %p  " selection-info)
