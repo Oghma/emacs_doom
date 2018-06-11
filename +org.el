@@ -5,6 +5,8 @@
 
 (after! org
 
+  (setq org-agenda-files (directory-files +org-dir t "\\.org$" t))
+
   ;; Add diary entry for holidays
   (setq org-agenda-include-diary t)
 
