@@ -29,8 +29,8 @@
       ; +fuzzy)          ; enable fuzzy search backend for helm
       ;ido               ; the other *other* search engine...
        (ivy              ; a search engine for love and life
-        +childframe      ; uses childframes for popups (Emacs 26+ only)
-        +fuzzy)          ; enable fuzzy search backend for ivy
+        +childframe)     ; uses childframes for popups (Emacs 26+ only)
+        ;+fuzzy          ; enable fuzzy search backend for ivy
 
        :ui
        doom              ; what makes DOOM look the way it does
