@@ -38,9 +38,11 @@
        doom-modeline     ; a snazzy Atom-inspired mode-line
       ;doom-quit         ; DOOM quit-message prompts when you quit Emacs
       ;evil-goggles      ; display visual hints when editing in evil
+      ;fci               ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE tags
        nav-flash         ; blink the current line after jumping
        neotree           ; a project drawer, like NERDTree for vim
+      ;treemacs          ; a project drawer, like neotree but cooler
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
@@ -71,6 +73,7 @@
        rotate-text       ; cycle region at point between text candidates
       ;tmux              ; an API for interacting with tmux
        upload            ; map local to remote projects via ssh/ftp
+      ;wakatime          ;
 
        :lang
       ;assembly          ; assembly for fun or debugging
@@ -108,6 +111,7 @@
       ;plantuml          ; diagrams for confusing people more
       ;purescript        ; javascript, but functional
        python            ; beautiful is better than ugly
+      ;qt                ; the 'cutest' gui framework ever
       ;rest              ; Emacs as a REST client
       ;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
       ;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
@@ -135,9 +139,13 @@
       ;impatient-mode    ; show off code over HTTP
 
        :config
+       ;; For literate config users. This will tangle+compile a config.org
+       ;; literate config in your `doom-private-dir' whenever it changes.
+      ;literate
+
        ;; The default module set reasonable defaults for Emacs. It also provides
        ;; a Spacemacs-inspired keybinding scheme, a custom yasnippet library,
        ;; and additional ex commands for evil-mode. Use it as a reference for
        ;; your own modules.
-       ;(default +bindings +snippets +evil-commands)
+      ;(default +bindings +snippets +evil-commands)
        )
