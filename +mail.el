@@ -24,7 +24,7 @@
 
   (setq mu4e-update-interval 300)
 
-  (set! :email "Mivoq"
+  (set-email-account! "Mivoq"
     '((user-mail-address      . "matteo.lisotto@mivoq.it")
       (user-full-name         . "Matteo Lisotto")
       (mu4e-sent-folder       . "/mivoq/INBOX.Sent")
@@ -35,7 +35,8 @@
                               (concat
                                "Matteo Lisotto\n"
                                "<matteo.lisotto@mivoq.it>\n"))))
-  (set! :email "Gmail"
+
+  (set-email-account! "Gmail"
     '((user-mail-address      . "matteo.lisotto@gmail.com")
       (user-full-name         . "Matteo Lisotto")
       (mu4e-sent-folder       . "/gmail/[Gmail].Tutti i messaggi")
@@ -48,6 +49,7 @@
                                "Matteo Lisotto\n"
                                "<matteo.lisotto@gmail.com>\n"
                                "<phone>\n"))) t)
+
 
   ;; Bookmarks for common searches that I use.
   (setq mu4e-bookmarks
