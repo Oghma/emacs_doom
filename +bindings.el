@@ -219,7 +219,9 @@
      "C-s" #'isearch-forward))
 
  ;; Calendar stuff
- "<f8>"  #'=calendar)
+ "<f8>"  #'=calendar
+
+ "C-c c" #'mc/edit-lines)
 
 
 (which-key-add-key-based-replacements "C-c e"   "perspective")
