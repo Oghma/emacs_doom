@@ -19,3 +19,7 @@
     (bar matches " " buffer-info "  %l:%c %p  " selection-info)
     (buffer-encoding major-mode vcs flycheck mu4e-unread-mail))
   )
+
+(when IS-MAC
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
