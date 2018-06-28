@@ -10,3 +10,4 @@
 (load! "+behaviour.el")
 (load! "+calendar.el")
 (load! "+mc.el")
+(load! "+completion.el")
