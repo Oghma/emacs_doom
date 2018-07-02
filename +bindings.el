@@ -34,7 +34,7 @@
  (:prefix "C-c d"
    "d" #'+doom-dashboard/open
    "f" #'recentf-open-files
-   "n" #'+neotree/open
+   "n" #'+treemacs/toggle
    "o" #'+popup/other
    "t" #'+popup/toggle
    "c" #'+popup/close
@@ -101,7 +101,7 @@
  ;; Plugins
 
  ;; misc plugins
- "<f9>" #'+neotree/open
+ "<f9>" #'treemacs
  "C-="  #'er/expand-region
  "C-'"  #'imenu-list-smart-toggle
 
@@ -155,25 +155,26 @@
      "C-g"        #'company-search-abort))
 
  ;; NeoTree bindings
- (:after neotree
-   :map neotree-mode-map
-   "q"       #'neotree-hide
-   [return]  #'neotree-enter
-   "RET"     #'neotree-enter
-   "SPC"     #'neotree-quick-look
-   "v"       #'neotree-enter-vertical-split
-   "s"       #'neotree-enter-horizontal-split
-   "c"       #'neotree-create-node
-   "D"       #'neotree-delete-node
-   "g"       #'neotree-refresh
-   "r"       #'neotree-rename-node
-   "R"       #'neotree-refresh
-   "h"       #'+neotree/collapse-or-up
-   "l"       #'+neotree/expand-or-open
-   "n"       #'neotree-next-line
-   "p"       #'neotree-previous-line
-   "N"       #'neotree-select-next-sibling-node
-   "P"       #'neotree-select-previous-sibling-node)
+ ;; (:after neotree
+ ;;   :map neotree-mode-map
+ ;;   "q"       #'neotree-hide
+ ;;   [return]  #'neotree-enter
+ ;;   "RET"     #'neotree-enter
+ ;;   "SPC"     #'neotree-quick-look
+ ;;   "v"       #'neotree-enter-vertical-split
+ ;;   "s"       #'neotree-enter-horizontal-split
+ ;;   "c"       #'neotree-create-node
+ ;;   "D"       #'neotree-delete-node
+ ;;   "g"       #'neotree-refresh
+ ;;   "r"       #'neotree-rename-node
+ ;;   "R"       #'neotree-refresh
+ ;;   "h"       #'+neotree/collapse-or-up
+ ;;   "l"       #'+neotree/expand-or-open
+ ;;   "n"       #'neotree-next-line
+ ;;   "p"       #'neotree-previous-line
+ ;;   "N"       #'neotree-select-next-sibling-node
+ ;;   "P"       #'neotree-select-previous-sibling-node)
+
  (:after help-mode
    (:map help-mode-map
      "o" #'ace-link-help
