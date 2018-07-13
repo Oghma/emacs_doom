@@ -11,3 +11,4 @@
 (load! "+calendar.el")
 (load! "+mc.el")
 (load! "+completion.el")
+(load! "+latex.el")
