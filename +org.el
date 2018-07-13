@@ -1,11 +1,10 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
-(setq +org-dir "~/Dropbox/Agenda/")
-(setq +todo-file "~/Dropbox/TODO.org")
 
 (after! org
 
-  (setq org-agenda-files (directory-files +org-dir t "\\.org$" t))
+  (setq org-agenda-files (list "~/Dropbox/Agenda/"))
+  (setq +todo-file "~/Dropbox/TODO.org")
 
   ;; Add diary entry for holidays
   (setq org-agenda-include-diary t)
