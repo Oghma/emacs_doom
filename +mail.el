@@ -47,8 +47,7 @@
       (mu4e-compose-signature .
                               (concat
                                "Matteo Lisotto\n"
-                               "<matteo.lisotto@gmail.com>\n"
-                               "<phone>\n"))) t)
+                               "<matteo.lisotto@gmail.com>\n"))) t)
 
 
   ;; Bookmarks for common searches that I use.
