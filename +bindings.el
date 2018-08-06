@@ -235,4 +235,4 @@
 (which-key-add-key-based-replacements "C-c p"   "projects")
 (which-key-add-key-based-replacements "C-c v"   "versioning")
 (which-key-add-key-based-replacements "C-c w"   "workspace")
-(which-key-add-key-based-replacements "C-c !"   "checking")
+(which-key-add-key-based-replacements "C-c p s"   "search")
