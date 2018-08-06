@@ -12,3 +12,8 @@
 (load! "+mc.el")
 (load! "+completion.el")
 (load! "+latex.el")
+
+;; Load packages at startup
+(require 'org)
+(require 'org-agenda)
+(require 'magit)
