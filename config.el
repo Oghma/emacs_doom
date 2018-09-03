@@ -10,7 +10,6 @@
 (load! "+calendar.el")
 (load! "+completion.el")
 (load! "+latex.el")
-(load! "+formatter.el")
 
 ;; Load packages at startup
 (require 'org)
