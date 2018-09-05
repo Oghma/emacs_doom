@@ -16,8 +16,8 @@
 
  ;; Buffer related bindings
  "C-x b"       #'persp-switch-to-buffer
- "C-x C-b"     #'ibuffer-list-buffers
- "C-x B"       #'switch-to-buffer
+ "C-x C-b"     #'switch-to-buffer
+ "C-x B"       #'ibuffer-list-buffers
  "C-x k"       #'doom/kill-this-buffer-in-all-windows
  "M-a"         #'mark-whole-buffer
 
