@@ -71,12 +71,13 @@
        vc                ; version-control and Emacs, sitting in a tree
 
        :tools
+      ;docker
        editorconfig      ; let someone else argue about tabs vs spaces
       ;ein               ; tame Jupyter notebooks with emacs
        gist              ; interacting with github gists
        macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
-       magit             ;
+       magit             ; a git porcelain for Emacs
        password-store    ; password manager for nerds
        pdf               ; pdf enhancements
       ;prodigy           ; FIXME managing external services & code builders
