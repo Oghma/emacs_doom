@@ -12,6 +12,5 @@
 (load! "+latex.el")
 
 ;; Load packages at startup
-(require 'org)
-(require 'org-agenda)
-(require 'magit)
+(doom-load-packages-incrementally
+ '(nose pip-requirements pythonic anaconda-mode company-anaconda))
