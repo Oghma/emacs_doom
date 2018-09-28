@@ -10,6 +10,7 @@
 (load! "+calendar.el")
 (load! "+completion.el")
 (load! "+latex.el")
+(load! "+git.el")
 
 ;; Load packages at startup
 (doom-load-packages-incrementally
