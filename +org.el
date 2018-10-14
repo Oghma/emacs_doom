@@ -1,10 +1,42 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
 
-(after! org
+(def-package! org-super-agenda
+  :commands (org-super-agenda-mode)
+  :init (advice-add #'org-super-agenda-mode :around #'doom*shut-up)
+  :config
+  (setq org-super-agenda-groups
+        '((:name "Log\n"
+                 :log t)  ; Automatically named "Log"
+          (:name "Schedule\n"
+                 :time-grid t)
+          (:name "Today\n"
+                 :scheduled today
+                 :time-grid t)
+          (:name "Habits\n"
+                 :habit t)
+          (:name "Overdue\n"
+                 :deadline past)
+          (:name "Due soon\n"
+                 :deadline future)
+          (:name "Waiting\n"
+                 :todo "WAIT"
+                 )
+          (:name "Scheduled earlier\n"
+                 :scheduled past)
+          (:name "All TODOs\n"
+                 :todo "[ ]"))))
 
-  (setq org-agenda-files (list "~/Dropbox/Agenda/"))
-  (setq +todo-file "~/Dropbox/TODO.org")
+(after! org
+  ;; Load org-habit module
+  (add-to-list 'org-modules 'org-habit)
+
+  ;; Org related stuffs
+  (setq org-agenda-files (list "~/Dropbox/Agenda/")
+        +todo-file "~/Dropbox/TODO.org")
+
+  ;; Enable org-super-agenda
+  (org-super-agenda-mode)
 
   ;; Add diary entry for holidays
   (setq org-agenda-include-diary t)
@@ -36,4 +68,43 @@
   (setq holiday-islamic-holidays nil)
   (setq holiday-oriental-holidays nil)
 
-  (calendar-set-date-style 'european))
+  (calendar-set-date-style 'european)
+
+  ;; Show agenda as popup
+  (set-popup-rule! "^\\*Org Agenda.*"
+    :slot -1
+    :size 100
+    :side 'right
+    :select t))
+
+(add-hook 'org-load-hook #'|setup-agenda t)
+
+(defun |setup-agenda ()
+  (setq-default org-agenda-block-separator ""
+
+        org-agenda-compact-blocks t
+        org-agenda-dim-blocked-tasks nil
+        ;org-agenda-follow-indirect t
+        ;org-agenda-ignore-properties '(effort appt category)
+        org-agenda-inhibit-startup t
+        org-agenda-log-mode-items '(closed clock)
+        org-agenda-overriding-header ""
+        org-agenda-restore-windows-after-quit t
+        org-agenda-skip-deadline-if-done t
+        org-agenda-skip-deadline-prewarning-if-scheduled t
+        ;org-agenda-skip-scheduled-if-done t
+        ;org-agenda-skip-unavailable-files t
+        org-agenda-sorting-strategy '((agenda time-up priority-down category-keep)
+                                      (todo   priority-down category-keep)
+                                      (tags   priority-down category-keep)
+                                      (search category-keep))
+        org-agenda-span 'day
+        org-agenda-start-day nil
+        org-agenda-start-with-log-mode t
+        org-agenda-sticky nil
+        org-agenda-tags-column 'auto
+        org-agenda-use-tag-inheritance nil
+        org-habit-following-days 0
+        org-habit-graph-column 1
+        org-habit-preceding-days 8
+        org-habit-show-habits t))
