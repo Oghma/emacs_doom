@@ -41,6 +41,13 @@
   ;; Add diary entry for holidays
   (setq org-agenda-include-diary t)
 
+  ;; Org keywords
+  (setq  org-todo-keywords
+         '((sequence "[ ](t)" "[-](p)" "[?](m)" "|" "[X](d)")
+           (sequence "TODO(T)" "|" "DONE(D)")
+           (sequence "NEXT(n)" "WAITING(w)" "LATER(l)" "|" "CANCELLED(c)")
+           (sequence "HABT(h)" "|" "DONE(c)")))
+
   ;; Holidays
   (setq holiday-general-holidays
         '((holiday-fixed 1 1 "Capodanno")
@@ -81,30 +88,29 @@
 
 (defun |setup-agenda ()
   (setq-default org-agenda-block-separator ""
-
-        org-agenda-compact-blocks t
-        org-agenda-dim-blocked-tasks nil
-        ;org-agenda-follow-indirect t
-        ;org-agenda-ignore-properties '(effort appt category)
-        org-agenda-inhibit-startup t
-        org-agenda-log-mode-items '(closed clock)
-        org-agenda-overriding-header ""
-        org-agenda-restore-windows-after-quit t
-        org-agenda-skip-deadline-if-done t
-        org-agenda-skip-deadline-prewarning-if-scheduled t
-        ;org-agenda-skip-scheduled-if-done t
-        ;org-agenda-skip-unavailable-files t
-        org-agenda-sorting-strategy '((agenda time-up priority-down category-keep)
-                                      (todo   priority-down category-keep)
-                                      (tags   priority-down category-keep)
-                                      (search category-keep))
-        org-agenda-span 'day
-        org-agenda-start-day nil
-        org-agenda-start-with-log-mode t
-        org-agenda-sticky nil
-        org-agenda-tags-column 'auto
-        org-agenda-use-tag-inheritance nil
-        org-habit-following-days 0
-        org-habit-graph-column 1
-        org-habit-preceding-days 8
-        org-habit-show-habits t))
+                org-agenda-compact-blocks t
+                org-agenda-dim-blocked-tasks nil
+                ;;org-agenda-follow-indirect t
+                ;;org-agenda-ignore-properties '(effort appt category)
+                org-agenda-inhibit-startup t
+                org-agenda-log-mode-items '(closed clock)
+                org-agenda-overriding-header ""
+                org-agenda-restore-windows-after-quit t
+                org-agenda-skip-deadline-if-done t
+                org-agenda-skip-deadline-prewarning-if-scheduled t
+                ;;org-agenda-skip-scheduled-if-done t
+                ;;org-agenda-skip-unavailable-files t
+                org-agenda-sorting-strategy '((agenda time-up priority-down category-keep)
+                                              (todo   priority-down category-keep)
+                                              (tags   priority-down category-keep)
+                                              (search category-keep))
+                org-agenda-span 'day
+                org-agenda-start-day nil
+                org-agenda-start-with-log-mode t
+                org-agenda-sticky nil
+                org-agenda-tags-column 'auto
+                org-agenda-use-tag-inheritance nil
+                org-habit-following-days 0
+                org-habit-graph-column 1
+                org-habit-preceding-days 8
+                org-habit-show-habits t))
