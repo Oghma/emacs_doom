@@ -46,7 +46,7 @@
          '((sequence "[ ](t)" "[-](p)" "[?](m)" "|" "[X](d)")
            (sequence "TODO(T)" "|" "DONE(D)")
            (sequence "NEXT(n)" "WAITING(w)" "LATER(l)" "|" "CANCELLED(c)")
-           (sequence "HABT(h)" "|" "DONE(c)")))
+           (sequence "HABT(h)" "|" "DONE(x)")))
 
   ;; Holidays
   (setq holiday-general-holidays
