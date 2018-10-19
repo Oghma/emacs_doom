@@ -7,25 +7,27 @@
   :config
   (setq org-super-agenda-groups
         '((:name "Log\n"
-                 :log t)  ; Automatically named "Log"
+                 :log t)
+          (:name "Birthdays\n"
+                 :category "Birthdays")
           (:name "Schedule\n"
                  :time-grid t)
           (:name "Today\n"
                  :scheduled today
-                 :time-grid t)
+                 :deadline today)
           (:name "Habits\n"
                  :habit t)
           (:name "Overdue\n"
+                 :scheduled past
                  :deadline past)
           (:name "Due soon\n"
                  :deadline future)
           (:name "Waiting\n"
-                 :todo "WAIT"
-                 )
+                 :todo ("WAITING" "[?]"))
           (:name "Scheduled earlier\n"
                  :scheduled past)
           (:name "All TODOs\n"
-                 :todo "[ ]"))))
+                 :todo ("TODO" "[ ]")))))
 
 (after! org
   ;; Load org-habit module
