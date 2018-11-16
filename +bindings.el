@@ -92,12 +92,6 @@
    "i" #'+vcs/git-browse-issues
    "b" #'+vcs/git-browse)
 
- ;; Mail related bindings
- (:prefix "C-c m"
-   "s" #'mail-add-attachment
-   "m" #'mu4e
-   "s" #'mail-send)
-
  ;; Plugins
 
  ;; misc plugins
@@ -228,7 +222,6 @@
 (which-key-add-key-based-replacements "C-c e"   "perspective")
 (which-key-add-key-based-replacements "C-c d"   "doom")
 (which-key-add-key-based-replacements "C-c d p" "doom popups")
-(which-key-add-key-based-replacements "C-c m"   "mail")
 (which-key-add-key-based-replacements "C-c o"   "org")
 (which-key-add-key-based-replacements "C-c a"   "org agenda")
 (which-key-add-key-based-replacements "C-c o e" "org export")
