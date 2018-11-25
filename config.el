@@ -5,7 +5,6 @@
 
 (load! "+ui")
 (load! "+bindings")
-(load! "+mail")
 (load! "+org.el")
 (load! "+calendar.el")
 (load! "+completion.el")
