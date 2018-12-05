@@ -12,6 +12,7 @@
  ;; Editor related bindings
  "C-a"            #'doom/backward-to-bol-or-indent
  [remap newline]  #'newline-and-indent
+ "C-j"            #'newline-and-indent
  "C-S"            #'swiper
 
  ;; Buffer related bindings
