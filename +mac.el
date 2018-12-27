@@ -6,3 +6,6 @@
 
 (after! anaconda-mode
    (setq python-shell-interpreter (executable-find "python3")))
+
+(setq mac-command-modifier 'meta
+	  mac-option-modifier  'super)
