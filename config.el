@@ -10,6 +10,7 @@
 (load! "+completion.el")
 (load! "+latex.el")
 (load! "+git.el")
+(load! "+python.el")
 
 ;; Load packages at startup
 (doom-load-packages-incrementally
