@@ -51,16 +51,20 @@
 
        :editor
        (format +onsave)    ; automated prettiness
+       ;;lispy             ; vim for lisp, for people who dont like vim
        multiple-cursors    ; editing in many places at once
        ;;parinfer          ; turn lisp into python, sort of
        rotate-text         ; cycle region at point between text candidates
 
        :emacs
-       dired               ; making dired pretty [functional]
+       (dired              ; making dired pretty [functional]
+        +ranger            ; bringing the goodness of ranger to dired
+        +icons             ; colorful icons for dired-mode
+        )
        ediff               ; comparing files in Emacs
        electric            ; smarter, keyword-based electric-indent
        eshell              ; a consistent, cross-platform shell (WIP)
-       ;;hideshow          ; basic code-folding support
+       hideshow            ; basic code-folding support
        imenu               ; an imenu sidebar and searchable code index
        term                ; terminals in Emacs
        vc                  ; version-control and Emacs, sitting in a tree
@@ -78,6 +82,7 @@
        pdf                 ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
+       ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
        ;;wakatime          ;
@@ -106,7 +111,7 @@
        (latex              ; writing papers in Emacs has never been so fun
         +pdf-tools)
        ;;ledger            ; an accounting system in Emacs
-       lua                 ; one-based indices? one-based indices
+       ;;lua               ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
@@ -133,6 +138,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;web               ; the tubes
+       ;;vala              ; GObjective-C
 
        ;; Applications are complex and opinionated modules that transform Emacs
        ;; toward a specific purpose. They may have additional dependencies and
@@ -157,7 +163,6 @@
        ;;literate
 
        ;; The default module sets reasonable defaults for Emacs. It also
-       ;; provides a Spacemacs-inspired keybinding scheme, a custom yasnippet
-       ;; library, and additional ex commands for evil-mode. Use it as a
-       ;; reference for your own modules.
-       (default))
+       ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
+       ;; config. Use it as a reference for your own modules.
+       (default +bindings +smartparens))
