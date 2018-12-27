@@ -1,11 +1,6 @@
 ;;; init.el -*- lexical-binding: t; -*-
 ;; Copy me to ~/.doom.d/init.el or ~/.config/doom/init.el, then edit me!
 
-(def-package-hook! mu4e
-  :pre-config
-  (setq +email-backend 'offlineimap)
-  t)
-
 (doom! :feature
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        eval                ; run code, run (also, repls)
