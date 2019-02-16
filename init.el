@@ -86,6 +86,7 @@
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
        ;;wakatime          ;
+       lsp                 ; one language server to rule them all
 
        :lang
        ;;assembly          ; assembly for fun or debugging
