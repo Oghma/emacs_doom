@@ -8,7 +8,6 @@
 (load! "+org.el")
 (load! "+calendar.el")
 (load! "+completion.el")
-(load! "+latex.el")
 (load! "+git.el")
 (load! "+python.el")
 (load! "+lsp.el")
