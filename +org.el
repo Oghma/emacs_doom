@@ -1,6 +1,38 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
 
+;; Org related stuffs
+(setq org-agenda-files (list "~/Dropbox/Agenda/")
+      +org-capture-project-folder "~/Dropbox/Agenda/"
+      +todo-file "~/Dropbox/Agenda/TODO.org"
+      +org-capture-todo-file "~/Dropbox/Agenda/captureTodo.org"
+      +org-capture-notes-file "~/Dropbox/Agenda/NOTE.org")
+
+(setq org-capture-templates
+  `(("t" "Personal todo" entry
+     (file+headline +org-capture-todo-file "Inbox")
+     "* [ ] %?\n%i\n%a" :prepend t :kill-buffer t)
+    ("n" "Personal notes" entry
+     (file+headline +org-capture-notes-file "Inbox")
+     "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
+
+    ;; Will use {project-root}/{todo,notes,changelog}.org, unless a
+    ;; {todo,notes,changelog}.org file is found in a parent directory.
+    ("p" "Templates for projects")
+    ("pt" "Project todo" entry  ; {project-root}/todo.org
+     (file+headline, (concat +org-capture-project-folder (projectile-project-name) ".org") "TODO"),
+     (concat "* TODO %? :" (projectile-project-name) ":%^G\n") :prepend t :kill-buffer t)
+
+    ("pT" "Project todo" entry  ; {project-root}/todo.org
+     (file+headline +org-capture-project-todo-file "Inbox")
+     "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+    ("pN" "Project notes" entry  ; {project-root}/notes.org
+     (file+headline +org-capture-project-notes-file "Inbox")
+     "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+    ("pC" "Project changelog" entry  ; {project-root}/changelog.org
+     (file+headline +org-capture-project-notes-file "Unreleased")
+     "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
+
 (def-package! org-super-agenda
   :commands (org-super-agenda-mode)
   :init (advice-add #'org-super-agenda-mode :around #'doom*shut-up)
@@ -32,10 +64,6 @@
 (after! org
   ;; Load org-habit module
   (add-to-list 'org-modules 'org-habit)
-
-  ;; Org related stuffs
-  (setq org-agenda-files (list "~/Dropbox/Agenda/")
-        +todo-file "~/Dropbox/TODO.org")
 
   ;; Enable org-super-agenda
   (org-super-agenda-mode)
