@@ -8,6 +8,18 @@
       +org-capture-todo-file "~/Dropbox/Agenda/captureTodo.org"
       +org-capture-notes-file "~/Dropbox/Agenda/NOTE.org")
 
+(defun generate-todo-project-headline ()
+  (concat "* TODO %? :" (projectile-project-name) ":%^G\n"))
+
+(defun generate-todo-project-file ()
+  (concat +org-capture-project-folder (projectile-project-name) ".org"))
+
+(setq org-capture-templates
+      '(("pt" "Project todo" entry
+         (file+headline generate-project-file "TODO")
+         (function generate-project-headline)
+         :prepend t :kill-buffer t)))
+
 (setq org-capture-templates
   `(("t" "Personal todo" entry
      (file+headline +org-capture-todo-file "Inbox")
@@ -19,10 +31,10 @@
     ;; Will use {project-root}/{todo,notes,changelog}.org, unless a
     ;; {todo,notes,changelog}.org file is found in a parent directory.
     ("p" "Templates for projects")
-    ("pt" "Project todo" entry  ; {project-root}/todo.org
-     (file+headline, (concat +org-capture-project-folder (projectile-project-name) ".org") "TODO"),
-     (concat "* TODO %? :" (projectile-project-name) ":%^G\n") :prepend t :kill-buffer t)
-
+    ("pt" "Project todo" entry
+     (file+headline generate-project-file "TODOs")
+     (function generate-project-headline)
+     :prepend t :kill-buffer t)
     ("pT" "Project todo" entry  ; {project-root}/todo.org
      (file+headline +org-capture-project-todo-file "Inbox")
      "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
