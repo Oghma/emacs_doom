@@ -1,7 +1,4 @@
 ;;; ~/.doom.d/+python.el -*- lexical-binding: t; -*-
 
-(after! python
-   (setq python-shell-interpreter (executable-find "python3")))
-
-(after! anaconda-mode
-   (setq python-shell-interpreter (executable-find "python3")))
+(after! doom-modeline
+  (setq doom-modeline-python-executable "python3"))
