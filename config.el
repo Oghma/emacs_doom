@@ -11,7 +11,3 @@
 (load! "+git.el")
 (load! "+python.el")
 (load! "+lsp.el")
-
-;; Load packages at startup
-(doom-load-packages-incrementally
- '(nose pip-requirements pythonic anaconda-mode company-anaconda))
