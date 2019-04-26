@@ -80,7 +80,7 @@
 
 (after! org
   ;; Load org-habit module
-  (add-to-list 'org-modules 'org-habit)
+  ;;(add-to-list 'org-modules 'org-habit)
 
   ;; Enable org-super-agenda
   (org-super-agenda-mode)
@@ -146,11 +146,11 @@
         org-agenda-start-with-log-mode t
         org-agenda-sticky nil
         org-agenda-tags-column 'auto
-        org-agenda-use-tag-inheritance nil
-        org-habit-following-days 0
-        org-habit-graph-column 1
-        org-habit-preceding-days 8
-        org-habit-show-habits t)
+        org-agenda-use-tag-inheritance nil)
+        ;; org-habit-following-days 0
+        ;; org-habit-graph-column 1
+        ;; org-habit-preceding-days 8
+        ;; org-habit-show-habits t)
 
   ;; Show agenda as popup
   (set-popup-rule! "^\\*Org Agenda.*"
