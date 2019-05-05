@@ -8,23 +8,10 @@
 ;; More information about these modules (and what flags they support) can be
 ;; found in modules/README.org.
 
-(doom! :feature
-       ;;debugger          ; FIXME stepping through code, to help you add bugs
-       eval                ; run code, run (also, repls)
-       ;;(evil +everywhere); come to the dark side, we have cookies
-       file-templates      ; auto-snippets for empty files
-       (lookup             ; helps you navigate your code and documentation
-        +docsets)          ; ...or in Dash docsets locally
-       snippets            ; my elves. They type so I don't have to
-       workspaces          ; tab emulation, persistence & separate workspaces
-
-       :completion
+(doom! :completion
        (company            ; the ultimate code completion backend
-        +auto              ; as-you-type code completion
-        +childframe)       ; a nicer company UI (Emacs 26+ only)
-       ;;(helm             ; the *other* search engine for love and life
-       ;; +childframe)     ; uses childframes for popups (Emacs 26+ only)
-       ;; +fuzzy)          ; enable fuzzy search backend for helm
+        +childrame)
+       ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy                ; a search engine for love and life
         +childframe        ; uses childframes for popups (Emacs 26+ only)
@@ -52,20 +39,23 @@
        vc-gutter           ; vcs diff in the fringe
        ;;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select       ; visually switch windows
+       workspaces          ; tab emulation, persistence & separate workspaces
 
        :editor
+       ;;(evil +everywhere); come to the dark side, we have cookies
+       file-templates      ; auto-snippets for empty files
        fold                ; (nigh) universal code folding
        (format +onsave)    ; automated prettiness
        ;;lispy             ; vim for lisp, for people who dont like vim
        multiple-cursors    ; editing in many places at once
        ;;parinfer          ; turn lisp into python, sort of
        rotate-text         ; cycle region at point between text candidates
+       snippets            ; my elves. They type so I don't have to
 
        :emacs
        (dired              ; making dired pretty [functional]
         +ranger            ; bringing the goodness of ranger to dired
-        +icons             ; colorful icons for dired-mode
-        )
+        +icons)            ; colorful icons for dired-mode
        electric            ; smarter, keyword-based electric-indent
        eshell              ; a consistent, cross-platform shell (WIP)
        imenu               ; an imenu sidebar and searchable code index
@@ -74,16 +64,20 @@
 
        :tools
        ;;ansible
+       ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
        editorconfig        ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
+       eval                ; run code, run (also, repls)
        (flycheck           ; tasing you for every semicolon you forget
-        +childframe)
+        +childframe)       ; uses childframes for popups (Emacs 26+ only)
        flyspell            ; tasing you for misspelling mispelling
        gist                ; interacting with github gists
+       (lookup             ; helps you navigate your code and documentation
+        +docsets)          ; ...or in Dash docsets locally
        lsp                 ; one language server to rule them all
-       macos               ; MacOS-specific commands
+       macos             ; MacOS-specific commands
        magit               ; a git porcelain for Emacs
        make                ; run make tasks from Emacs
        password-store      ; password manager for nerds
@@ -147,7 +141,7 @@
        ;;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       sh                  ; she sells (ba|z)sh shells on the C xor
+       sh                  ; she sells (ba|z|fi)sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
