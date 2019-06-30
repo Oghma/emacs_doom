@@ -11,4 +11,4 @@
   (setq lsp-python-ms-dir
         (expand-file-name "~/.python-language-server/output/bin/Release/"))
   (setq lsp-python-ms-executable
-        "~/.python-language-server/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer"))
+        "~/.python-language-server/output/bin/Release/osx-x64/publish/Microsoft.Python.LanguageServer"))
