@@ -1,180 +1,263 @@
-;;; doom-gruvbox-dark-theme.el --- inspired by Gruvbox Dark
+;; doom-gruvbox-theme.el --- inspired by morhetz gruvbox
 (require 'doom-themes)
 
 ;;
-(defgroup doom-gruvbox-dark-theme nil
-  "Options for doom-themes"
+(defgroup doom-gruvbox-theme nil
+  "Options for doom-gruvbox."
   :group 'doom-themes)
 
-(defcustom doom-gruvbox-dark-brighter-modeline nil
-  "If non-nil, more vivid colors will be used to style the mode-line."
-  :group 'doom-gruvbox-dark-theme
-  :type 'boolean)
-
-(defcustom doom-gruvbox-dark-brighter-comments nil
+(defcustom doom-gruvbox-brighter-comments nil
   "If non-nil, comments will be highlighted in more vivid colors."
-  :group 'doom-gruvbox-dark-theme
+  :group 'doom-gruvbox-theme
   :type 'boolean)
 
-(defcustom doom-gruvbox-dark-comment-bg doom-gruvbox-dark-brighter-comments
-  "If non-nil, comments will have a subtle, darker background. Enhancing their
-legibility."
-  :group 'doom-gruvbox-dark-theme
-  :type 'boolean)
-
-(defcustom doom-gruvbox-dark-padded-modeline nil
+(defcustom doom-gruvbox-padded-modeline doom-themes-padded-modeline
   "If non-nil, adds a 4px padding to the mode-line. Can be an integer to
 determine the exact padding."
-  :group 'doom-gruvbox-dark-theme
+  :group 'doom-gruvbox-theme
   :type '(or integer boolean))
 
 ;;
-(def-doom-theme doom-gruvbox-dark
-  "Doom gruvbox-dark theme"
+(def-doom-theme doom-gruvbox
+  "Dark theme with pastel 'retro groove' colors."
 
-  ;; name        default   256       16
-  ((bg         '("#282828" "#262626" nil            ))
-   (bg-alt     '("#32302f" "#303030" nil            ))
-   (base0      '("#3c3836" "#3a3a3a" "black"        ))
-   (base1      '("#504945" "#4e4e4e" "brightblack"  ))
-   (base2      '("#665c54" "#626262" "brightblack"  ))
-   (base3      '("#7c6f64" "#767676" "brightblack"  ))
-   (base4      '("#928374" "#8a8a8a" "brightblack"  ))
-   (base5      '("#a89984" "#949494" "brightblack"  ))
-   (base6      '("#bdae93" "#a8a8a8" "brightblack"  ))
-   (base7      '("#d5c4a1" "#bcbcbc" "brightblack"  ))
-   (base8      '("#ebdbb2" "#ffdfaf" "white"        ))
-   (fg-alt     '("#f2e5bc" "#ffffaf" "brightwhite"  ))
-   (fg         '("#fbf1c7" "#ffffaf" "white"        ))
+  ;; name        gui       256       16
+  ((bg         '("#282828" nil       nil          ))
+   (bg-alt     (doom-lighten bg 0.05))
+   (accent     '("#504945" "#504945" "brown"          ))
 
-   (grey       base4)
-   (red        '("#FB4934" "#D75F5F" "red"          ))
-   (orange     '("#FE8019" "#FF8700" "brightred"    ))
-   (green      '("#98971A" "#878700" "green"        ))
-   (teal       '("#B8BB26" "#AFAF00" "brightgreen"  ))
-   (yellow     '("#FABD2F" "#FFAF00" "yellow"       ))
-   (blue       '("#83A598" "#87AF87" "brightblue"   ))
-   (dark-blue  '("#458588" "#5F8787" "blue"         ))
-   (magenta    '("#D3869B" "#D78787" "magenta"      ))
-   (violet     '("#B16286" "#AF5F87" "brightmagenta"))
-   (cyan       '("#8EC07C" "#87AF87" "brightcyan"   ))
-   (dark-cyan  '("#689D6A" "#5FAF5F" "cyan"         ))
+   (base0      '("#1B2229" "black"   "black"      ))
+   (base1      '("#151617" "#101010" "brightblack"))
+   (base2      '("#1d1f20" "#191919" "brightblack"))
+   (base3      '("#2d2e2e" "#252525" "brightblack"))
+   (base4      '("#4e4e4e" "#454545" "brightblack"))
+   (base5      '("#555556" "#6b6b6b" "brightblack"))
+   (base6      '("#767679" "#7b7b7b" "brightblack"))
+   (base7      '("#cfc0c5" "#c1c1c1" "brightblack"))
+   (base8      '("#ffffff" "#ffffff" "brightwhite"))
+   (fg         '("#ebdbb2" "#dfdfdf" "brightwhite"))
+   (fg-alt    '("#928374" "#dfdfdf" "brightwhite"))
+   (fg-light (doom-lighten fg-alt 0.25))
 
-   ;; face categories -- required for all themes
-   (highlight      grey)
-   (vertical-bar   (doom-lighten bg 0.05))
-   (selection      base0)
+   (grey       '("#555556" "#515154" "brightblack"))
+   (red        '("#fb4934" "#e74c3c" "red"))
+   (magenta    '("#fb2874" "#fb2874" "magenta"))
+   (violet     '("#d3869b" "#d3869b" "brightmagenta"))
+   (orange     '("#fe8019" "#fd971f" "brightred"))
+   (yellow     '("#fabd2f" "#fabd2f" "yellow"))
+   (dark-green      '("#689d6a" "#689d6a" "green"))
+   (green      '("#8ec07c" "#8ec07c" "green"))
+   (teal       green)
+   (olive     '("#b8bb26" "#b8bb26" "green"))
+   (blue       '("#268bd2" "#2686D6" "brightblue"))
+   (dark-blue  '("#727280" "#727280" "blue"))
+   (cyan       '("#83a598" "#83a598" "brightcyan"))
+   (dark-cyan  '("#458588" "#458588" "cyan"))
+
+   ;; face categories
+   (highlight      yellow)
+   (vertical-bar   grey)
+   (selection      accent)
    (builtin        orange)
-   (comments       (if doom-gruvbox-dark-brighter-comments base4 base3))
-   (doc-comments   (doom-lighten (if doom-gruvbox-dark-brighter-comments teal green) 0.25))
-   (constants      magenta)
-   (functions      yellow)
+   (comments       (if doom-gruvbox-brighter-comments magenta fg-light))
+   (doc-comments   (if doom-gruvbox-brighter-comments (doom-lighten magenta 0.2) fg-light))
+   (constants      yellow)
+   (functions      green)
    (keywords       red)
-   (methods        red)
-   (operators      red)
-   (type           magenta)
-   (strings        teal)
-   (variables      blue)
-   (numbers        magenta)
-   (region         base1)
+   (methods        green)
+   (operators      cyan)
+   (type           green)
+   (strings        olive)
+   (variables      fg)
+   (numbers        violet)
+   (region         accent)
    (error          red)
    (warning        yellow)
    (success        green)
-   (vc-modified    orange)
-   (vc-added       green)
+
+   (vc-modified    accent)
+   (vc-added       (doom-darken green 0.15))
    (vc-deleted     red)
 
    ;; custom categories
-   (hidden     `(,(car bg) "black" "black"))
-   (-modeline-bright doom-gruvbox-dark-brighter-modeline)
    (-modeline-pad
-    (when doom-gruvbox-dark-padded-modeline
-      (if (integerp doom-gruvbox-dark-padded-modeline) doom-gruvbox-dark-padded-modeline 4)))
+    (when doom-gruvbox-padded-modeline
+      (if (integerp doom-gruvbox-padded-modeline)
+          doom-gruvbox-padded-modeline
+        4)))
 
-   (modeline-fg     nil)
-   (modeline-fg-alt base5)
-
-   (modeline-bg
-    (if -modeline-bright
-        base3
-        `(,(doom-darken (car bg) 0.15) ,@(cdr base0))))
-   (modeline-bg-l
-    (if -modeline-bright
-        base3
-        `(,(doom-darken (car bg) 0.1) ,@(cdr base0))))
-   (modeline-bg-inactive   (doom-darken bg 0.1))
-   (modeline-bg-inactive-l `(,(car bg) ,@(cdr base1))))
-
+   (org-quote `(,(doom-lighten (car bg) 0.05) "#1f1f1f")))
 
   ;; --- extra faces ------------------------
-  ((elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
+(
+   ;;;;;;;; Editor ;;;;;;;;
+   ((cursor &override) :background "white")
+   (hl-line :background bg-alt)
+   ;; (hl-line :background accent)
+   ((line-number-current-line &override) :background grey :foreground "white" :bold t)
+   ((line-number &override) :foreground grey)
 
-   ((line-number &override) :foreground fg-alt)
-   ((line-number-current-line &override) :foreground fg)
-   ((line-number &override) :background (doom-darken bg 0.025))
+   ;; Vimish-fold
+   ((vimish-fold-overlay &override) :inherit 'font-lock-comment-face :background accent :weight 'light)
+   ((vimish-fold-mouse-face &override) :foreground "white" :background yellow :weight 'light)
+   ((vimish-fold-fringe &override) :foreground magenta :background magenta)
 
-   (font-lock-comment-face
-    :foreground comments
-    :background (if doom-gruvbox-dark-comment-bg (doom-lighten bg 0.05)))
-   (font-lock-doc-face
-    :inherit 'font-lock-comment-face
-    :foreground doc-comments)
-
-   (doom-modeline-bar :background (if -modeline-bright modeline-bg highlight))
-
+   ;;;;;;;; Doom-modeline ;;;;;;;;
    (mode-line
-    :background modeline-bg :foreground modeline-fg
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
+    :background accent :foreground fg-light
+    :box (if -modeline-pad `(:line-width ,-modeline-pad :color base3)))
+
    (mode-line-inactive
-    :background modeline-bg-inactive :foreground modeline-fg-alt
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
-   (mode-line-emphasis
-    :foreground (if -modeline-bright base8 highlight))
-   (mode-line-buffer-id
-    :foreground highlight)
+    :background bg :foreground base4
+    :box (if -modeline-pad `(:line-width ,-modeline-pad :color base2)))
 
-   (solaire-mode-line-face
-    :inherit 'mode-line
-    :background modeline-bg-l
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-l)))
-   (solaire-mode-line-inactive-face
-    :inherit 'mode-line-inactive
-    :background modeline-bg-inactive-l
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
+   ;; File-name
+   (doom-modeline-project-dir :bold t :foreground cyan)
+   (doom-modeline-buffer-path :inherit 'bold :foreground green)
+   (doom-modeline-buffer-file :inherit 'bold :foreground fg)
+   (doom-modeline-buffer-modified :inherit 'bold :foreground yellow)
+   ;; Misc
+   (doom-modeline-error :background bg)
+   (doom-modeline-buffer-major-mode :foreground green :bold t)
+   (doom-modeline-warning :foreground red :bold t)
+   (doom-modeline-info :bold t :foreground cyan)
+   (doom-modeline-bar :background dark-green)
+   (doom-modeline-panel :background dark-green :foreground fg)
 
-   (telephone-line-accent-active
-    :inherit 'mode-line
-    :background (doom-lighten bg 0.2))
-   (telephone-line-accent-inactive
-    :inherit 'mode-line
-    :background (doom-lighten bg 0.05))
+   ;;;;;;;; Search ;;;;;;;;
+   ;; /find
+   (isearch :foreground base0 :background yellow)
+   (evil-search-highlight-persist-highlight-face :background orange)
+   (lazy-highlight :background yellow :foreground base0 :distant-foreground base0 :bold bold)
+   (evil-ex-substitute-replacement :foreground yellow :inherit 'evil-ex-substitute-matches)
 
-   ;; --- major-mode faces -------------------
+   ;; evil-snipe
+   (evil-snipe-first-match-face :foreground "white" :background yellow)
+   (evil-snipe-matches-face     :foreground yellow :bold t :underline t)
+
+   ;;;;;;;; Mini-buffers ;;;;;;;;
+   (minibuffer-prompt :foreground green)
+   (solaire-hl-line-face :background accent)
+
+   ;; ivy
+   (ivy-current-match :background accent)
+   (ivy-subdir :background nil :foreground cyan)
+   (ivy-action :background nil :foreground cyan)
+   (ivy-grep-line-number :background nil :foreground cyan)
+   (ivy-minibuffer-match-face-1 :background nil :foreground yellow)
+   (ivy-minibuffer-match-face-2 :background nil :foreground yellow)
+   (ivy-minibuffer-match-highlight :foreground olive)
+   (counsel-key-binding :foreground green)
+
+   ;; neotree
+   (neo-root-dir-face   :foreground green )
+   (doom-neotree-dir-face :foreground cyan)
+   (neo-dir-link-face   :foreground cyan)
+   (doom-neotree-file-face :foreground fg)
+   (doom-neotree-hidden-file-face :foreground fg-light)
+   (doom-neotree-media-file-face :foreground fg-light)
+   (neo-expand-btn-face :foreground magenta)
+
+   ;; dired
+   (dired-directory :foreground cyan)
+   (dired-marked :foreground yellow)
+   (dired-symlink :foreground green)
+
+   ;; term
+   (term-color-blue :background cyan :foreground cyan)
+   (term-color-cyan :background green :foreground green)
+   (term-color-green :background olive :foreground olive)
+
+   ;;;;;;;; Brackets ;;;;;;;;
+   ;; Rainbow-delimiters
+   (rainbow-delimiters-depth-1-face :foreground red)
+   (rainbow-delimiters-depth-2-face :foreground yellow)
+   (rainbow-delimiters-depth-3-face :foreground green)
+   (rainbow-delimiters-depth-4-face :foreground red)
+   (rainbow-delimiters-depth-5-face :foreground yellow)
+   (rainbow-delimiters-depth-6-face :foreground green)
+   (rainbow-delimiters-depth-7-face :foreground red)
+   ;; Bracket pairing
+   ((show-paren-match &override) :foreground nil :background fg-alt :bold t)
+   ((show-paren-mismatch &override) :foreground nil :background "red")
+
+   ;;;;;;;; which-key ;;;;;;;;
+   (which-func :foreground green)
+   (which-key-command-description-face :foreground fg)
+   (which-key-group-description-face :foreground fg-light)
+   (which-key-local-map-description-face :foreground cyan)
+
+   ;;;;;;;; Company ;;;;;;;;
+   (company-preview-common :foreground green)
+   (company-tooltip-common :foreground green)
+   (company-tooltip-common-selection :foreground green)
+   (company-tooltip-annotation :foreground cyan)
+   (company-tooltip-annotation-selection :foreground cyan)
+   (company-scrollbar-bg :background fg)
+   (company-scrollbar-fg :background green)
+   (company-tooltip-selection :background accent)
+   (company-tooltip-mouse :background accent :foreground nil)
+
+   ;;;;;;;; Magit ;;;;;;;;
+   (magit-branch-current :foreground yellow)
+   (magit-section-heading :foreground cyan)
+   (magit-filename :foreground olive)
+
+   (magit-diff-hunk-heading-highlight :background yellow :foreground "black")
+   (magit-diff-hunk-heading :background (doom-darken yellow 0.5) :foreground base3)
+   (magit-diff-conflict-heading :background yellow)
+
+   ;; Blame
+   (magit-blame-heading :background accent :foreground fg)
+   (magit-blame-date :foreground fg-alt)
+
+   ;;;;;;;; Misc ;;;;;;;;
+   (+workspace-tab-selected-face :background dark-green :foreground "white")
+
+   ;; Undo tree
+   (undo-tree-visualizer-active-branch-face :foreground green)
+   (undo-tree-visualizer-current-face :foreground yellow)
+
+   ;; General UI
+   (button :foreground green :underline t :bold t)
+
+   ;; ediff
+   (ediff-fine-diff-A :background (doom-blend red bg 0.3) :weight 'bold)
+
+   ;; flycheck
+   (flycheck-error   :underline `(:style wave :color ,red)    :background base3)
+   (flycheck-warning :underline `(:style wave :color ,yellow) :background base3)
+   (flycheck-info    :underline `(:style wave :color ,green)  :background base3)
+
+   ;; helm
+   (helm-swoop-target-line-face :foreground magenta :inverse-video t)
+
+   ;;;;;;;; Major mode faces ;;;;;;;;
    ;; css-mode / scss-mode
-   (css-proprietary-property :foreground orange)
-   (css-property             :foreground green)
-   (css-selector             :foreground blue)
+   (css-proprietary-property :foreground keywords)
 
    ;; markdown-mode
-   (markdown-markup-face :foreground base5)
-   (markdown-header-face :inherit 'bold :foreground red)
-   (markdown-code-face :background (doom-lighten base3 0.05))
+   (markdown-blockquote-face :inherit 'italic :foreground cyan)
+   (markdown-list-face :foreground red)
+   (markdown-url-face :foreground red)
+   (markdown-pre-face  :foreground green)
+   (markdown-link-face :inherit 'bold :foreground cyan)
+   (markdown-code-face :background (doom-lighten base2 0.045))
 
    ;; org-mode
-   (org-hide :foreground hidden)
-   (org-block            :background (doom-darken bg 0.05) :foreground base8)
-   (org-block-begin-line :background (doom-darken bg 0.05) :foreground grey)
-   (solaire-org-hide-face :foreground hidden)
-   (org-block-background :background base0)
-   (org-block-end-line   :inherit 'org-block-begin-line)
+   (org-level-1 :foreground yellow :bold bold :height 1.2)
+   (org-level-2 :inherit 'org-level-1 :foreground cyan)
+   (org-level-3 :bold bold :foreground green)
+   (org-level-4 :inherit 'org-level-3)
+   (org-level-5 :inherit 'org-level-3)
+   (org-level-6 :inherit 'org-level-3)
+   (org-ellipsis :underline nil :background base2 :foreground orange)
+   (org-tag :foreground yellow :bold nil)
+   (org-quote :inherit 'italic :foreground base7 :background org-quote)
+   (org-todo :foreground yellow :bold 'inherit)
+   (org-list-dt :foreground yellow))
 
-   (org-level-1
-    :foreground blue :background (doom-darken bg 0.025)
-    :bold bold :height 1.2))
-
-
-  ;; --- extra variables ---------------------
+  ;; --- extra variables --------------------
   ;; ()
   )
-
-;;; doom-gruvbox-dark-theme.el ends here
+;;; doom-gruvbox-theme.el ends here
