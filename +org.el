@@ -8,19 +8,6 @@
       +org-capture-todo-file "~/Dropbox/Agenda/captureTodo.org"
       +org-capture-notes-file "~/Dropbox/Agenda/NOTE.org")
 
-;; (defun generate-todo-project-headline ()
-;;   (concat "* TODO %? :" (projectile-project-name) ":%^G\n"))
-
-;; (defun generate-todo-project-file ()
-;;   (concat +org-capture-project-folder (projectile-project-name) ".org"))
-
-;; (setq org-capture-templates
-;;       '(("pt" "Project todo" entry
-;;          (file+headline generate-project-file "TODO")
-;;          (function generate-project-headline)
-;;          :prepend t :kill-buffer t)))
-;;
-
 (defun generate-project-todo-headline ()
   (concat "* TODO %? :" (projectile-project-name) ":%^G\n"))
 
@@ -38,15 +25,23 @@
          (file+headline generate-project-todo-file "TODOs")
          (function generate-project-todo-headline)
          :prepend t :kill-buffer t)
+        ("pn" "Project notes" entry  ; {project-root}/notes.org
+         (file+headline generate-project-todo-file "Notes")
+         (function generate-project-todo-headline)
+         :prepend t :kill-buffer t)
+        ("pc" "Project changelog" entry  ; {project-root}/changelog.org
+         (file+headline +org-capture-project-notes-file "Changelog")
+         (function generate-project-todo-headline)
+         :prepend t :kill-buffer t)
         ;; Will use {project-root}/{todo,notes,changelog}.org, unless a
         ;; {todo,notes,changelog}.org file is found in a parent directory.
-        ("pT" "Project Todo", entry
+        ("rt" "Root Project Todo", entry
          (file+headline +org-capture-project-todo-file "TODOs")
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("pN" "Project notes" entry  ; {project-root}/notes.org
+        ("rn" "Root Project notes" entry  ; {project-root}/notes.org
          (file+headline +org-capture-project-notes-file "Notes")
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("pC" "Project changelog" entry  ; {project-root}/changelog.org
+        ("rc" "Root Project changelog" entry  ; {project-root}/changelog.org
          (file+headline +org-capture-project-notes-file "Changelog")
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
 
