@@ -11,4 +11,4 @@
 (load! "+git.el")
 (load! "+python.el")
 ;;(load! "+lsp.el")
-(load! "+formatters.el")
+;;(load! "+formatters.el")

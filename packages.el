@@ -5,7 +5,7 @@
 ;;(package! lsp-python-ms)
 
 ;;(packages! reformatter)
-(package! python-black
-  :recipe
-  (:fetcher github
-            :repo "wbolster/emacs-python-black"))
+;;(package! python-black
+;;  :recipe
+;;  (:fetcher github
+;;            :repo "wbolster/emacs-python-black"))
