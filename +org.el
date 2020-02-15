@@ -45,7 +45,7 @@
          (file+headline +org-capture-project-notes-file "Changelog")
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
 
-(def-package! org-super-agenda
+(use-package! org-super-agenda
   :commands (org-super-agenda-mode)
   :init (advice-add #'org-super-agenda-mode :around #'doom-shut-up-a)
   :config
