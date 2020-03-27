@@ -69,8 +69,8 @@
 
        :emacs
        (dired              ; making dired pretty [functional]
-	;;+ranger          ; bringing the goodness of ranger to dired
-	+icons)            ; colorful icons for dired-mode
+        ;;+ranger          ; bringing the goodness of ranger to dired
+        +icons)            ; colorful icons for dired-mode
        electric            ; smarter, keyword-based electric-indent
        ibuffer             ; interactive buffer management
        vc                  ; version-control and Emacs, sitting in a tree
@@ -112,7 +112,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
-       (cc +irony +rtags)  ; C/C++/Obj-C madness
+       ;;(cc +irony +rtags); C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -135,7 +135,7 @@
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        (latex              ; writing papers in Emacs has never been so fun
-	+pdf-tools)
+        +pdf-tools)
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
