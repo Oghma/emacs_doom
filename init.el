@@ -97,7 +97,8 @@
        gist                ; interacting with github gists
        (lookup             ; helps you navigate your code and documentation
         +docsets)          ; ...or in Dash docsets locally
-       lsp                 ; one language server to rule them all
+       (lsp                ; one language server to rule them all
+        +peek)
        macos               ; MacOS-specific commands
        magit               ; a git porcelain for Emacs
        make                ; run make tasks from Emacs

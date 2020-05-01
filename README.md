@@ -10,6 +10,8 @@ bin/doom up
 ```
 
 ## External packages
+Run `bin/doom doctor` to see missing packages.
+
 The following external packages are required:
 ### Python
 - black
