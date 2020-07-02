@@ -9,3 +9,6 @@
 (load! "+completion.el")
 (load! "+git.el")
 (load! "+python.el")
+
+;; Haskel
+(setq haskell-process-type 'cabal-new-repl)

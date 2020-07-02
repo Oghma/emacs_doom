@@ -14,9 +14,9 @@
    "C-s"        #'swiper-helm
    "C-r"        #'helm-resume)
 
- ;; Undo tree
- "C-z"   #'undo
- "C-S-z" #'redo
+ ;; Undo
+ "C-z"   #'undo-fu-only-undo
+ "C-S-z" #'undo-fu-only-redo
 
  ;; Calendar stuff
  "<f8>"  #'=calendar)
