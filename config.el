@@ -12,3 +12,5 @@
 
 ;; Haskel
 (setq haskell-process-type 'cabal-new-repl)
+;; Deft
+(setq deft-directory "~/Dropbox/Notes")
