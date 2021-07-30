@@ -8,10 +8,3 @@
 (load! "+org.el")
 (load! "+completion.el")
 (load! "+git.el")
-
-;; Haskel
-;;(setq haskell-process-type 'cabal-new-repl)
-;; Deft
-(setq deft-directory "~/Dropbox/Notes")
-;; Org-roam
-(setq org-roam-directory "~/Dropbox/Notes")

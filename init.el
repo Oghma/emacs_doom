@@ -24,22 +24,24 @@
         +childframe)
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy                ; a search engine for love and life
-        +childframe        ; uses childframes for popups (Emacs 26+ only)
-        +fuzzy)            ; enable fuzzy search backend for ivy
+       ;; (ivy                ; a search engine for love and life
+       ;;  +childframe        ; uses childframes for popups (Emacs 26+ only)
+       ;;  +fuzzy             ; enable fuzzy search backend for ivy
+       ;;  +icons             ; enable file icons
+       ;;  +prescient)        ; enable prescient filtering
+       vertico           ; the search engine of the future
 
        :ui
-       deft                ; notational velocity for Emacs
+       ;;deft              ; notational velocity for Emacs
        doom                ; what makes DOOM look the way it does
        doom-dashboard      ; a nifty splash screen for Emacs
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
        (emoji +unicode)    ; 🙂
-       ;;fill-column       ; a `fill-column' indicator
        hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
        ligatures           ; ligatures and symbols to make your code pretty again
-        ;+extra            ; enable ligatures for extra symbols
+        ;;+extra)          ; enable ligatures for extra symbols
        ;;minimap           ; show a map of the code on the side
        modeline            ; snazzy, Atom-inspired modeline, plus API
        nav-flash           ; blink cursor line after big motions
@@ -49,7 +51,8 @@
         +all               ; catch all popups that start with an asterix
         +defaults)         ; default popup rules
        ;;tabs              ; a tab bar for Emacs
-       treemacs            ; a project drawer, like neotree but cooler
+       (treemacs           ; a project drawer, like neotree but cooler
+        +lsp)
        unicode             ; extended unicode support for various languages
        vc-gutter           ; vcs diff in the fringe
        ;;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -76,7 +79,8 @@
         ;;+ranger          ; bringing the goodness of ranger to dired
         +icons)            ; colorful icons for dired-mode
        electric            ; smarter, keyword-based electric-indent
-       ibuffer             ; interactive buffer management
+       (ibuffer            ; interactive buffer management
+        +icons)
        undo                ; persistent, smarter undo for your inevitable mistakes
        vc                  ; version-control and Emacs, sitting in a tree
 
@@ -96,14 +100,15 @@
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
-       editorconfig        ; let someone else argue about tabs vs spaces
+       ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        (lookup             ; navigate your code and its documentation
+        +dictionary
         +docsets)          ; ...or in Dash docsets locally
-       (lsp                ; one language server to rule them all
-        +peek)
+       lsp                 ; one language server to rule them all
+       ;; +peek)
        magit               ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -145,7 +150,8 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json                ; At least it ain't XML
-       ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
+       (java               ; the poster child for carpal tunnel syndrome
+        +lsp)
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
@@ -164,7 +170,7 @@
         ;;+jupyter         ; ipython/jupyter support for babel
         ;;+pandoc          ; export-with-pandoc support
         ;;+pomodoro        ; be fruitful with the tomato technique
-        +roam
+        +roam2
         +present)          ; using org-mode for presentations
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
