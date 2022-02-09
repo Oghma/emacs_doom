@@ -98,7 +98,7 @@
        :tools
        ;;ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
-       ;;direnv
+       direnv
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
@@ -107,8 +107,8 @@
        (lookup             ; navigate your code and its documentation
         +dictionary
         +docsets)          ; ...or in Dash docsets locally
-       lsp                 ; one language server to rule them all
-       ;; +peek)
+       (lsp                ; one language server to rule them all
+       +peek)
        magit               ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -184,8 +184,8 @@
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       ;;(rust             ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       ;; +lsp)
+       (rust               ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+        +lsp)
        ;;scala             ; java, but good
        ;;scheme            ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
@@ -212,4 +212,4 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings))

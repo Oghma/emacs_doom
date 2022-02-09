@@ -6,6 +6,10 @@
  "C-x C-b"     #'switch-to-buffer
  "C-x B"       #'ibuffer-list-buffers
 
+ ;; Search
+ (:when (featurep! :completion vertico)
+  "C-s"         #'consult-line
+  "C-r"         #'vertico-repeat)
  ;; Swiper
  (:when (featurep! :completion ivy)
    "C-s"        #'swiper
