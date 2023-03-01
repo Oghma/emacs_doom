@@ -103,7 +103,8 @@
        :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
-       ;;debugger          ; FIXME stepping through code, to help you add bugs
+       (debugger           ; FIXME stepping through code, to help you add bugs
+        +lsp)
        direnv
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
@@ -115,7 +116,8 @@
         +docsets)          ; ...or in Dash docsets locally
        (lsp                ; one language server to rule them all
        +peek)
-       magit               ; a git porcelain for Emacs
+       (magit              ; a git porcelain for Emacs
+        +forge)
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf                 ; pdf enhancements
