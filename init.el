@@ -45,7 +45,7 @@
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
        ligatures           ; ligatures and symbols to make your code pretty again
-        ;;+extra)          ; enable ligatures for extra symbols
+       ;;+extra)           ; enable ligatures for extra symbols
        ;;minimap           ; show a map of the code on the side
        modeline            ; snazzy, Atom-inspired modeline, plus API
        nav-flash           ; blink cursor line after big motions
@@ -63,7 +63,7 @@
        ;;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select       ; visually switch windows
        workspaces          ; tab emulation, persistence & separate workspaces
-       zen                 ; distraction-free coding or writing
+       ;;zen               ; distraction-free coding or writing
 
        :editor
        ;;(evil +everywhere); come to the dark side, we have cookies
@@ -106,7 +106,8 @@
        (debugger           ; FIXME stepping through code, to help you add bugs
         +lsp)
        direnv
-       ;;docker
+       (docker
+        +lsp)
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
@@ -115,12 +116,12 @@
         +dictionary
         +docsets)          ; ...or in Dash docsets locally
        (lsp                ; one language server to rule them all
-       +peek)
+        +peek)
        (magit              ; a git porcelain for Emacs
         +forge)
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       pdf                 ; pdf enhancements
+       ;; pdf              ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
@@ -164,11 +165,13 @@
        json                ; At least it ain't XML
        ;;(java             ; the poster child for carpal tunnel syndrome
        ;;+lsp)
-       ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript         ; all(hope(abandon(ye(who(enter(here))))))
+        +lsp
+        +tree-sitter)
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       (latex              ; writing papers in Emacs has never been so fun
-        +pdf-tools)
+       ;;(latex            ; writing papers in Emacs has never been so fun
+       ;; +pdf-tools)
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
        ;;lua               ; one-based indices? one-based indices
@@ -189,9 +192,9 @@
        ;;purescript        ; javascript, but functional
        (python             ; beautiful is better than ugly
         +lsp
-        +poetry
         +pyright
-        +tree-sitter)
+        +tree-sitter
+        +poetry)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
@@ -199,13 +202,14 @@
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust               ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-        +lsp)
+        +lsp
+        +tree-sitter)
        ;;scala             ; java, but good
        ;;scheme            ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        solidity            ; do you need a blockchain? No.
-       swift               ; who asked for emoji variables?
+       ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
        yaml                ; JSON, but readable

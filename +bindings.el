@@ -7,14 +7,14 @@
  "C-x B"       #'ibuffer-list-buffers
 
  ;; Search
- (:when (featurep! :completion vertico)
-  "C-s"         #'consult-line
-  "C-r"         #'vertico-repeat)
+ (:when (modulep! :completion vertico)
+   "C-s"         #'consult-line
+   "C-r"         #'vertico-repeat)
  ;; Swiper
- (:when (featurep! :completion ivy)
+ (:when (modulep! :completion ivy)
    "C-s"        #'swiper
    "C-r"        #'ivy-resume)
- (:when (featurep! :completion helm)
+ (:when (modulep! :completion helm)
    "C-s"        #'swiper-helm
    "C-r"        #'helm-resume)
 
