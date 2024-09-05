@@ -21,8 +21,11 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company            ; the ultimate code completion backend
-        +childframe)
+       ;;(company          ; the ultimate code completion backend
+       ;; +childframe)
+       (corfu              ; complete with cap(f), cape and a flying feather!
+        +orderless
+        +icons)
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;; (ivy             ; a search engine for love and life
@@ -31,7 +34,8 @@
        ;;  +icons          ; enable file icons
        ;;  +prescient)     ; enable prescient filtering
        (vertico            ; the search engine of the future
-        +childframe)
+        +childframe
+        +icons)
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -127,11 +131,11 @@
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       tree-sitter       ; syntax and parsing, sitting in a tree...
+       tree-sitter         ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
-       (:if IS-MAC macos)  ; improve compatibility with macOS
+       (:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
        tty                 ; improve the terminal Emacs experience
 
        :lang
@@ -185,7 +189,7 @@
         ;;+jupyter         ; ipython/jupyter support for babel
         ;;+pandoc          ; export-with-pandoc support
         ;;+pomodoro        ; be fruitful with the tomato technique
-        +roam2
+        ;;+roam2
         +present)          ; using org-mode for presentations
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
@@ -205,7 +209,7 @@
         +lsp
         +tree-sitter)
        ;;scala             ; java, but good
-       ;;scheme            ; a fully conniving family of lisps
+       ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        solidity            ; do you need a blockchain? No.
