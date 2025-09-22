@@ -1,15 +1,14 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
 
-;; Org related stuffs
-(setq org-directory "~/Documents/Org/Agenda/"
-      org-roam-directory "~/Library/Mobile Documents/iCloud\~com\~logseq\~logseq/Documents"
-      org-roam-dailies-directory "journals/"
-
-      org-roam-capture-templates '(("d" "default" plain "%?"
-                                    :target (file+head "pages/${slug}.org"
-                                                       "#+title: ${title}\n")
-                                    :unnarrowed t)))
+;; Org related configuration
+(after! org
+  (setq org-directory "~/Documents/Org/Agenda/")
+  (add-to-list 'org-capture-templates
+               '("C" "Call" entry
+                 (file (concat (file-name-as-directory org-directory) "calls.org"))
+                 "* [%<%Y-%m-%d>] %^{Title} %^G\n- %?"
+                 :empty-lines 1)))
 
 ;; (use-package! org-super-agenda
 ;;   :commands (org-super-agenda-mode)

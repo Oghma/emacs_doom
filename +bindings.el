@@ -10,13 +10,6 @@
  (:when (modulep! :completion vertico)
    "C-s"         #'consult-line
    "C-r"         #'vertico-repeat)
- ;; Swiper
- (:when (modulep! :completion ivy)
-   "C-s"        #'swiper
-   "C-r"        #'ivy-resume)
- (:when (modulep! :completion helm)
-   "C-s"        #'swiper-helm
-   "C-r"        #'helm-resume)
 
  ;; Undo
  "C-z"   #'undo-fu-only-undo

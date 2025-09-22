@@ -1,4 +1,6 @@
 ;;; ~/.doom.d/+completion.el -*- lexical-binding: t; -*-
 
-(after! company
-  (setq company-idle-delay 0.0))
+(after! corfu
+  (setq corfu-auto t
+        corfu-auto-delay 0
+        corfu-auto-prefix 1))

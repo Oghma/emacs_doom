@@ -169,9 +169,9 @@
        json                ; At least it ain't XML
        ;;(java             ; the poster child for carpal tunnel syndrome
        ;;+lsp)
-       (javascript         ; all(hope(abandon(ye(who(enter(here))))))
-        +lsp
-        +tree-sitter)
+       ;; (javascript         ; all(hope(abandon(ye(who(enter(here))))))
+       ;;  +lsp
+       ;;  +tree-sitter)
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        ;;(latex            ; writing papers in Emacs has never been so fun
@@ -197,8 +197,8 @@
        (python             ; beautiful is better than ugly
         +lsp
         +pyright
-        +tree-sitter
-        +poetry)
+        +tree-sitter)
+       ;;+poetry)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
