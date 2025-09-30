@@ -4,9 +4,11 @@
 ;; Org related configuration
 (after! org
   (setq org-directory "~/Documents/Org/Agenda/")
+  (unless (file-directory-p org-directory)
+    (make-directory org-directory t))
   (add-to-list 'org-capture-templates
-               '("C" "Call" entry
-                 (file (concat (file-name-as-directory org-directory) "calls.org"))
+               `("C" "Call" entry
+                 (file ,(expand-file-name "calls.org" (file-name-as-directory org-directory)))
                  "* [%<%Y-%m-%d>] %^{Title} %^G\n- %?"
                  :empty-lines 1)))
 
